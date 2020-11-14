@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="/styles/main.css")
+        title News
+    body
+        .container
+            .news
+                h2.news-title Новости
+                if news && news.length
+                    ul.news-list
+                        each newsItem in news
+                            li.news-item
+                                a.news-item__link(href= newsItem.url)
+                                    .news-item__top
+                                        .news__category Наука и техника
+                                        .news__date= newsItem.dateFormatted
+                                    h3.news-item__title= newsItem.title
+                                    .news-item__desc= newsItem.description + '...'
+                else
+                    p не дождались новостей
+            
+            .phrases
+                h2.phrases-title Фразы
+                if phrases && phrases.length
+                    ul.phrases-list
+                        each phrasesItem in phrases
+                            li.phrases-item
+                                a.phrases-item__link(href='#')= phrasesItem
+                else
+                    p не дождались фраз
